@@ -1,0 +1,33 @@
+.content{
+    width:500px;
+    margin: auto;
+}
+
+.game-table{
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+
+.tiles{
+    height: 150px;
+    width: 140px;
+    background-color:gray;
+}
+
+.circle{
+    width: 100px;
+    padding: 20px;
+}
+
+.cross{
+    width: 90px;
+    padding: 20px;
+    padding-left: 25px;
+}
+
+.reload{    
+    width: 100px;
+    padding: 20px;
+    margin-left: 172px;
+    background-color: green;
+}

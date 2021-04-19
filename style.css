@@ -1,4 +1,4 @@
-body{
+body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -9,15 +9,15 @@ body{
 }
 
 
-#gameHead{
+#gameHead {
   box-sizing: border-box;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   margin: 10px 5px;
 }
 
-#gameHead div{  
+#gameHead div {
   padding: 5px 15px;
   border-radius: 7px;
   display: flex;
@@ -25,72 +25,72 @@ body{
   font-weight: bold;
 }
 
-.playerIcon{
+.playerIcon {
   width: 15px;
 }
 
-.player1{
+.player1 {
   background-color: #dc685a;
 }
 
-.player2{
+.player2 {
   background-color: #ecaf4f;
 }
 
-.game-table{
-    border-collapse: separate;
-    border-spacing: 15px;
+.game-table {
+  border-collapse: separate;
+  border-spacing: 15px;
 }
 
-.tiles-row{
+.tiles-row {
   display: flex;
 
 }
 
-.tiles{
+.tiles {
   display: flex;
   justify-content: center;
   align-items: center;
-    height: 150px;
-    width: 140px;
-    background-color:#78bec5;
-    border-radius: 15px;
-    cursor: pointer;
-    color: #fff;
-    height: 90px;
-    margin: 5px;
-    width: 90px;
-    transition: all 0.3s ease;
+  height: 150px;
+  width: 140px;
+  background-color: #78bec5;
+  border-radius: 15px;
+  cursor: pointer;
+  color: #fff;
+  height: 90px;
+  margin: 5px;
+  width: 90px;
+  transition: all 0.3s ease;
 
 }
 
-.crossed{
+.crossed {
   background-color: #dc685a;
 }
 
-.circled{
+.circled {
   background-color: #ecaf4f;
 }
 
-.circle{
-    width: 50%;
-    /* padding: 20px;
+.circle {
+  width: 50%;
+  /* padding: 20px;
     color: #3d4250; */
 }
 
-.cross{
-    width: 50%;
-    /* padding: 20px;
+.cross {
+  width: 50%;
+  /* padding: 20px;
     padding-left: 25px; */
 }
 
-.reload{    
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 7px;
-    background-color: #78bec5;
-    text-align: center;
-    font-weight: bold;
+.reload {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 7px;
+  background-color: #78bec5;
+  text-align: center;
+  font-weight: bold;
 }

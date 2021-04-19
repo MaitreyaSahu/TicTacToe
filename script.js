@@ -4,6 +4,11 @@
         var isCrossTurn = true;
         var isGameOver = false;
 
+        //reset grid colors
+        console.log(document.querySelectorAll('.crossed'));
+        document.querySelectorAll('.crossed').forEach(elem => elem.classList.remove('crossed'));
+        document.querySelectorAll('.circled').forEach(elem => elem.classList.remove('circled'));
+
         var resetBtn = document.getElementById("resetBtn");
         resetBtn.style.visibility="hidden";
         resetBtn.addEventListener("click", resetGame); 
@@ -36,7 +41,7 @@
                 //console.log(mark);
                 //console.log(isCrossTurn);
                 gameArr[index].appendChild(mark);
-
+                console.log(gameArr[index].classList.add(isCrossTurn ? 'crossed' : 'circled'));
                 isCrossTurn = !isCrossTurn;
                 checkResult();
             }
@@ -58,7 +63,7 @@
             [gameArrElm[2], gameArrElm[4], gameArrElm[6]].every(elem => gameArrElm[2] == elem && elem != null) //right to left
             ){
                 console.log("yeah");
-                runGame();
+                //runGame();
                 //document.querySelectorAll(".circle, .cross").cle
                 //alert("yeah");
                 resetBtn.style.visibility="visible";

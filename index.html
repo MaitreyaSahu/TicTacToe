@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,20 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
     <div class="content">
         <div id="gameHead">
-
+            <div class="player1">
+                <div>Player 1</div>
+                <img src="/images/x.svg" alt="" class="playerIcon">
+            </div>
+            <div class="player2">
+                <div>Player 2</div>
+                <img src="/images/o.svg" alt="" class="playerIcon">
+            </div>
         </div>
-        <div id="gameZone">
+        <!-- <div id="gameZone">
             <table class="game-table">
                 <tbody>
                     <tr>
@@ -50,11 +59,33 @@
                     </tr>
                 </tbody>
             </table>
+        </div> -->
+
+        <div id="gameZone">
+            <div class="game-table">
+                <div class="tiles-row">
+                    <div class="tiles"></div>
+                    <div class="tiles"></div>
+                    <div class="tiles"></div>
+                </div>
+                <div class="tiles-row">
+                    <div class="tiles"></div>
+                    <div class="tiles"></div>
+                    <div class="tiles"></div>
+                </div>
+                <div class="tiles-row">
+                    <div class="tiles"></div>
+                    <div class="tiles"></div>
+                    <div class="tiles"></div>
+                </div>
+            </div>
         </div>
         <div id="gameDesc" >
-            <img src="./images/reload.svg" alt="Reload" class="reload" id="resetBtn">            
+            <div class="reload" id="resetBtn">Reload</div>
+            <!-- <img src="./images/reload.svg" alt="Reload" class="reload" id="resetBtn">             -->
         </div>
     </div>
-    <script src="./script.js" ></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>

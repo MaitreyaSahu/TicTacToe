@@ -9,6 +9,10 @@
         document.querySelectorAll('.crossed').forEach(elem => elem.classList.remove('crossed'));
         document.querySelectorAll('.circled').forEach(elem => elem.classList.remove('circled'));
 
+        const crossedPlayer = document.querySelector('.player1');
+        const circledPlayer = document.querySelector('.player2');
+        
+
         var resetBtn = document.getElementById("resetBtn");
         resetBtn.style.visibility = "hidden";
         resetBtn.addEventListener("click", resetGame);
@@ -41,32 +45,37 @@
                 //console.log(mark);
                 //console.log(isCrossTurn);
                 gameArr[index].appendChild(mark);
-                console.log(gameArr[index].classList.add(isCrossTurn ? 'crossed' : 'circled'));
+                gameArr[index].classList.add(isCrossTurn ? 'crossed' : 'circled');
                 isCrossTurn = !isCrossTurn;
                 checkResult();
+                console.log(isGameOver, isCrossTurn);
+                isGameOver || isCrossTurn ? crossedPlayer.classList.add('active') || circledPlayer.classList.remove('active') : crossedPlayer.classList.remove('active') || circledPlayer.classList.add('active');
             }
         }
 
         function checkResult() {
             var gameArrElm = gameArr.map(elem => elem.querySelector(".circle, .cross") ? elem.querySelector(".circle, .cross").className : null);
             //console.log(gameArrElm);
+            var completedLine  = [];
 
-            if ([gameArrElm[0], gameArrElm[1], gameArrElm[2]].every(elem => gameArrElm[0] == elem && elem != null) || //1st row
-                [gameArrElm[3], gameArrElm[4], gameArrElm[5]].every(elem => gameArrElm[3] == elem && elem != null) || //2nd row
-                [gameArrElm[6], gameArrElm[7], gameArrElm[8]].every(elem => gameArrElm[6] == elem && elem != null) || //3rd row
+            if ([gameArrElm[0], gameArrElm[1], gameArrElm[2]].every(elem => gameArrElm[0] == elem && elem != null) && (completedLine = [0, 1, 2]) || //1st row
+                [gameArrElm[3], gameArrElm[4], gameArrElm[5]].every(elem => gameArrElm[3] == elem && elem != null) && (completedLine = [3, 4, 5]) || //2nd row
+                [gameArrElm[6], gameArrElm[7], gameArrElm[8]].every(elem => gameArrElm[6] == elem && elem != null) && (completedLine = [6, 7, 8]) || //3rd row
 
-                [gameArrElm[0], gameArrElm[3], gameArrElm[6]].every(elem => gameArrElm[0] == elem && elem != null) || //1st column
-                [gameArrElm[1], gameArrElm[4], gameArrElm[7]].every(elem => gameArrElm[1] == elem && elem != null) || //2nd column
-                [gameArrElm[2], gameArrElm[5], gameArrElm[8]].every(elem => gameArrElm[2] == elem && elem != null) || //3rd column
+                [gameArrElm[0], gameArrElm[3], gameArrElm[6]].every(elem => gameArrElm[0] == elem && elem != null) && (completedLine = [0, 3, 6]) || //1st column
+                [gameArrElm[1], gameArrElm[4], gameArrElm[7]].every(elem => gameArrElm[1] == elem && elem != null) && (completedLine = [1, 4, 7]) || //2nd column
+                [gameArrElm[2], gameArrElm[5], gameArrElm[8]].every(elem => gameArrElm[2] == elem && elem != null) && (completedLine = [2, 5, 8]) || //3rd column
 
-                [gameArrElm[0], gameArrElm[4], gameArrElm[8]].every(elem => gameArrElm[0] == elem && elem != null) || //left to right
-                [gameArrElm[2], gameArrElm[4], gameArrElm[6]].every(elem => gameArrElm[2] == elem && elem != null) //right to left
+                [gameArrElm[0], gameArrElm[4], gameArrElm[8]].every(elem => gameArrElm[0] == elem && elem != null) && (completedLine = [0, 4, 8]) || //left to right
+                [gameArrElm[2], gameArrElm[4], gameArrElm[6]].every(elem => gameArrElm[2] == elem && elem != null) && (completedLine = [2, 4, 6])//right to left
             ) {
-                console.log("yeah");
+                console.log(completedLine);
+                tiles.forEach((tile, index) => completedLine.includes(index) ? "" : tile.classList.add('disabled'));
                 //runGame();
                 //document.querySelectorAll(".circle, .cross").cle
                 //alert("yeah");
                 resetBtn.style.visibility = "visible";
+                isGameOver = true;
                 //location.reload();
                 //document.getElementsByClassName("circle").parentNode;
             }
@@ -82,7 +91,9 @@
         }
 
         function resetGame() {
-            tiles.forEach(elem => elem.querySelector(".circle, .cross") ? elem.querySelector(".circle, .cross").parentNode.removeChild(elem.querySelector(".circle, .cross")) : "");
+            tiles.forEach(elem => elem.classList.remove('disabled') || elem.querySelector(".circle, .cross") ? elem.querySelector(".circle, .cross").parentNode.removeChild(elem.querySelector(".circle, .cross")) : "");
+            isGameOver = false;
+            isCrossTurn ? crossedPlayer.classList.add('active') || circledPlayer.classList.remove('active') : crossedPlayer.classList.remove('active') || circledPlayer.classList.add('active');
             runGame();
         }
     }

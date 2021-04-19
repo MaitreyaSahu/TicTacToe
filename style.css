@@ -6,7 +6,10 @@ body {
   justify-content: center;
   margin-top: 50px;
   background: linear-gradient(#0b0115, #31134e);
+  
+  
 }
+
 
 
 #gameHead {
@@ -33,8 +36,16 @@ body {
   background-color: #dc685a;
 }
 
+.player1.active{
+  box-shadow: 0 0 10px 2px #dc685a;
+}
+
 .player2 {
   background-color: #ecaf4f;
+}
+
+.player2.active{
+  box-shadow: 0 0 10px 2px #ecaf4f;
 }
 
 .game-table {
@@ -53,7 +64,7 @@ body {
   align-items: center;
   height: 150px;
   width: 140px;
-  background-color: #78bec5;
+  background-color: #58c086;
   border-radius: 15px;
   cursor: pointer;
   color: #fff;
@@ -61,7 +72,11 @@ body {
   margin: 5px;
   width: 90px;
   transition: all 0.3s ease;
+  outline: none;
+}
 
+.tiles:active {
+  transform: scale(1.1);
 }
 
 .crossed {
@@ -84,13 +99,52 @@ body {
     padding-left: 25px; */
 }
 
+
+.disabled{
+  opacity: 0.3;
+}
+
+.game-result{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+}
+
+.result-backdrop{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.4;
+  width: 100vw;
+  height: 100vw;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-body{
+  background-color: rgb(12, 1, 1);
+}
+
+
 .reload {
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
   margin: 10px 0;
   border-radius: 7px;
-  background-color: #78bec5;
+  background-color: #58c086;
+  color:#0b0115;
   text-align: center;
   font-weight: bold;
+}
+
+.reload:active {
+  transform: scale(0.9);
 }
